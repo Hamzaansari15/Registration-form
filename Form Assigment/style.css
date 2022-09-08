@@ -29,7 +29,7 @@ body {
 #main_form {
     width: 60%;
     background-color: #202A44;
-    height: 35rem;
+    height: fit-content;
     margin-top: 7rem;
     box-shadow: 3px 3px 30px black;
     border-radius: 16px;
@@ -240,6 +240,7 @@ body {
     display: flex;
     justify-content: center;
     margin-top: 3rem;
+    margin-bottom: 4rem;
 }
 #btn {
     width: 9rem;
