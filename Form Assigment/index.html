@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
      <div id="header">
@@ -28,13 +29,13 @@
             <div id="father_name_form">
                 <form action="">
                     <input placeholder="Enter your father name" type="text" name="" id="father_name">
-                    <input placeholder="Enter your father occupation" type="text" name="" id="father_occupation">
+                    <input placeholder="Enter your your username" type="text" name="" id="father_occupation">
                 </form>
             </div>
             <div id="cnic_form">
                 <form action="">
                     <input placeholder="Enter your CNIC number" type="number" name="" id="cnic_no">
-                    <input placeholder="Enter your father CNIC number"  type="number" name="" id="father_cnic_no">
+                    <input placeholder="Enter your phone number"  type="number" name="" id="father_cnic_no">
                 </form>
             </div>
             <div id="password_form">
@@ -44,10 +45,13 @@
                 </form>
             </div>
             <div id="submit_btn">
-                <button id="btn" type="submit">Submit</button>
+                <button id="btn" type="button" onclick="register()" >Submit</button>
             </div>
         </div>
     </div>
+
+
+    <script src="app.js"></script>
 </body>
 </html>
             
