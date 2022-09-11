@@ -1,3 +1,4 @@
+var arr = [];
 function register(){
     let firstName = document.getElementById("first_name").value;
     let nameReg = /(^[a-zA-Z]+$)/;
@@ -34,7 +35,7 @@ function register(){
     return false;
     }
     let cnicNo = document.getElementById("cnic_no").value;
-    let cnicReg =/^[0-9]{5}-[-|]-[0-9]{7}-[-|]-[0-9]{1}/;
+    let cnicReg =/^[0-9]{5}[0-9]{7}[0-9]{1}/;
     if(!cnicNo.match(cnicReg)){
         swal({
         text: "Invalid  CNIC No.!",
@@ -65,76 +66,99 @@ function register(){
     if(!password.match(passwordReg)){
         swal({
         text: "Invalid  Password.!",
-        icon: "warning",
+        icon: "warning"
     })
     return false;
     }
+    else{
+        
+          let name2 = firstName + lastName;
+          let cnic2 = cnicNo;
+          let email2 = email;
+          let Phone2 = fatherCnicNo;
+          let newArry = [name2,cnic2,Phone2,email2];
+          arr.push(newArry);
+          localStorage.setItem( "data_" + Math.random(),JSON.stringify(arr));
+          swal({
+            title: "Good job!",
+            text: "Your form is successfully submitted ",
+            icon: "success",
+            button: "Ok!"
+        }).then(function(){
+            location.reload();
+        })
+          
+ }
+ 
 }
-// var firstName = document.getElementById("first_name").value;
-// console.log(firstName);
-// function register() {
+// function showData(){
+//     for(let i = 0; i < Object.keys(localStorage).length; i++){
+//         let getData = localStorage.getItem( Object.keys(localStorage)[i] )
+//         let newData =  JSON.parse(getData)
+//         console.log(newData);
+//         for(let j of newData){
+//             console.log(j);
+          
+//     }
+// }
+// }
+// showData()
+function loadAll() {
+
+    var values = [],
+        keys = Object.keys(localStorage),
+        i = keys.length;
+        console.log(keys)
+
+    let index = 1
+    for ( let i = 0; i < Object.keys(localStorage).length; i++) {
+
+        let getData = localStorage.getItem( Object.keys(localStorage)[i] )
+        let newData =  JSON.parse(getData)  
+        
+        let x = 0;
+        for ( let x = 0; x < newData.length; x++ ) {
+            
+            let row = table.insertRow()
+            let cell1 = row.insertCell()
+            let cell2 = row.insertCell()
+            let cell3 = row.insertCell()
+            let cell4 = row.insertCell()
+            let cell5 = row.insertCell()
+            // let cell6 = row.insertCell()
+            // let cell7 = row.insertCell()
+            // let cell8 = row.insertCell()
+            // let cell9 = row.insertCell()
+            cell1.innerHTML =  index++;
+            cell2.innerHTML = newData[x][0]
+            cell3.innerHTML = newData[x][1]
+            cell4.innerHTML = newData[x][2]
+            cell5.innerHTML = newData[x][3]
+            // cell6.innerHTML = newData[x][4]
+            // cell7.innerHTML = newData[x][5]
+            // cell8.innerHTML = newData[x][6]
+            // cell9.innerHTML = newData[x][7]
+        }
+    }
+}
+loadAll();
+document.getElementById("shows").style.display = "none"
 
 
-//     let firstName = document.getElementById("first_name").value;
-//     let nameReg =   /(^[a-zA-Z]+$)/
-//     if(!firstName.match(nameReg)){
-//         swal("Invalid first name")
-//         return false
-//     }
-    
-//     let fatherName = document.getElementById("father_name").value;
-//     if(!fatherName.match(nameReg)){
-//         swal("Invalid Last name")
-//         return false
-//     }
-//     let gender = document.getElementById("gender").value;
-//     if(!gender.match(nameReg)){
-//         swal("Invalid gender name")
-//         return false
-//     }
-//     let age = document.getElementById("age").value;
-//     let ageReg = /^(\+?\d{1,3}|\d{1,4})$/
-//     if(!age.match(ageReg)){
-//         swal("Invalid country age")
-//         return false
-//     }
-//     let number = document.getElementById("number").value;
-//     let numReg = /^((\+92)|(0092))-{0,1}\d{3}-{0,1}\d{7}$|^\d{11}$|^\d{4}-\d{7}/g
-//     if(!number.match(numReg)){
-//         swal("Invalid Phone number")
-//         return false
-//     }
-//     let email = document.getElementById("email").value;
-//     let emailReg = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g
-//     if(!email.match(emailReg)){
-//         swal("Invalid email")
-//         return false
-//     }
-//     let country = document.getElementById("country").value;
-//     if(!country.match(nameReg)){
-//         swal("Invalid country name")
-//         return false
-//     }
-//     let city = document.getElementById("city").value;
-//     if(!city.match(nameReg)){
-//         swal("Invalid city name")
-//         return false
-//     }else{
-//         let name2 = name
-//         let fathername2 = fathername
-//         let gender2 = gender
-//         let age2 = age
-//         let number2 = number
-//         let email2 = email
-//         let country2 = country
-//         let city2 = city
-//         let newArry =[name2,fathername2,gender2,age2,number2,email2,country2,city2] 
-//         console.log(newArry)
-//         arr.push(newArry);
-//         localStorage.setItem("data",JSON.stringify(arr)) 
 
-//     }
-//     swal("Registration Successful", "Your subscription is Successfully done!", "success"); 
-// }   
-    
+function login(){
+    let pass1 = document.getElementById("pass").value
+    let username1 = document.getElementById("username").value
+    let pass = "admin";
+    let username = "admin"
+    if( !username == username1){
+        swal("Invalid username")
+        
+    }else if(!pass == pass1){
+        swal("Invalid password")
+    }else{
+        window.location.href = "admin.html"
+        
+    }
+}
 
