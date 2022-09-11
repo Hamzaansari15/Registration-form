@@ -30,7 +30,7 @@ body {
     width: 60%;
     background-color: #202A44;
     height: fit-content;
-    margin-top: 7rem;
+    margin-top: 3rem;
     box-shadow: 3px 3px 30px black;
     border-radius: 16px;
 } 
@@ -254,4 +254,34 @@ body {
     /* box-shadow: 3px 0px 15px black; */
     background-color: rgb(177, 150, 98);
 }
+#admin {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    
+    
+}
+#admin > button {
+    width: 11rem;
+    background-color: #202A44;
+    color: white;
+    height: 4rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    border-radius: 9px;
+    box-shadow: 3px 3px 30px black;
+    padding: 7px;
+    word-spacing: 9px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+#main_admin {
+    text-decoration: none;
 
+}
+#table {
+    margin: 4rem;
+}
+#tbody > tr > th {
+    border: 3px solid #202A44;
+}
